@@ -1,7 +1,7 @@
 # 程序员的浪漫
 
 ## 示例网页
-[https://zhenghonghai.github.io/confession/](https://zhenghonghai.github.io/confession/)
+[网站地址/](https://zhenghonghai.github.io/love/)
 
 ## 使用方法
 
