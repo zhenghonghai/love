@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>I Love You</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url('bg.png');
+            background-size: 100%,100%;
+        }
+        
+        h2 {
+            font-size: 180%;
+            font-weight: 400;
+        }
+        
+        .content {
+            position: absolute;
+            width: 100%;
+            top: 40%;
+            transform: translate(0, -50%);
+            text-align: center;
+        }
+        
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+        
+        .timer b {
+            color: rgb(253, 99, 125);
+        }
+
+        .timer span {
+            font-size: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h2 id="yourname">瑛仔，我们已经在一起</h2>
+        <div class="timer" id='time'>
+            <b id="d"></b><span> Days </span><b id="h"></b><span> Hours </span><b id="m"></b><span> Minutes </span><b id="s"></b><span> Seconds</span>
+        </div>
+    </div>
+
+    <script>
+
+        if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|WebOS|Symbian|Windows Phone|Phone)/i))) {
+            console.log("手机访问");
+        }else{
+            console.log("电脑访问,放大字体");
+            document.getElementById('yourname').style.fontSize = '500%'
+            document.getElementById('time').style.fontSize = '500%'
+        }
+        
+        function timer() {
+             <!--这是修改时间-->
+            var start = new Date(2022,0,17,19,0,0); // 2015.7.2
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+        }
+        timer();
+        
+        setInterval(timer, 1000);
+    </script>
+</body>
+
+</html>
